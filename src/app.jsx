@@ -6,32 +6,50 @@ import { useState } from 'react';
 
 
 export default function App() {
-  const [userText, setUserText] = useState('');
+  const [userTextOne, setUserTextOne] = useState('');
+  const [userTextTwo, setUserTextTwo] = useState('');
   const [nounOne, setNounOne] = useState('');
+  const [nounTwo, setNounTwo] = useState('');
 
-  function handleSubmit(e) {
+  function handleSubmitOne(e) {
     e.preventDefault();
-    setNounOne(`${userText}`);
-    setUserText('');
+    setNounOne(`${userTextOne}`);
+    setUserTextOne('');
+  }
+
+  function handleSubmitTwo(e) {
+    e.preventDefault();
+    setNounTwo(`${userTextTwo}`);
+    setUserTextTwo('');
   }
 
   return(
     <Router>
       <h1>Mad Lib App</h1>
-      <div className="textForms">
-        <div>{nounOne}</div>
+      <div className="cover-letter">
+        <div>I am applying for the position of {nounOne} at {nounTwo}</div>
       </div>
-      
+
       <form className="textForm"
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmitOne}>
         <input 
           name="userText"
-          value={userText} 
-          placeholder="User text"
-          onChange={e => setUserText(e.target.value)} />
-        <button type="submit">Submit</button>
+          value={userTextOne} 
+          placeholder="Noun 1"
+          onChange={e => setUserTextOne(e.target.value)} />
+        <button type="submit">Submit Noun</button>
       </form>
 
+
+      <form className="textForm"
+        onSubmit={handleSubmitTwo}>
+        <input 
+          name="userText"
+          value={userTextTwo} 
+          placeholder="Noun 1"
+          onChange={e => setUserTextTwo(e.target.value)} />
+        <button type="submit">Submit Noun</button>
+      </form>
     </Router>
   );
 }
