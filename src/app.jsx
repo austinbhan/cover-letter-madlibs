@@ -4,6 +4,7 @@ import {
 import '../src/app.css';
 import { useState } from 'react';
 import TextForm from './TextForm';
+import CoverLetterOne from './CoverLetterOne';
 
 
 export default function App() {
@@ -36,8 +37,10 @@ export default function App() {
     <Router>
       <h1>Mad Lib App</h1>
       <div className="cover-letter">
-        <div>I am applying for the position of {nounOne} at {nounTwo}. 
-        This is another noun: {nounThree}</div>
+        <CoverLetterOne
+          nounOne={nounOne}
+          nounTwo={nounTwo}
+          nounThree={nounThree} />
       </div>
 
       <TextForm 
